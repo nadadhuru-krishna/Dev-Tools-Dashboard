@@ -1,0 +1,32 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  ::ng-deep .mat-mdc-form-field {
+    display: block !important;
+    height: 45px !important;
+  }
+  ::ng-deep .mdc-text-field{
+    height: 45px !important;
+  }
+  .logo img {
+    height: 40px;
+  }
+  .add-button{
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 1fr 1fr;
+  }
+  .header-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .header-button:hover {
+    background-color: #0056b3;
+  }

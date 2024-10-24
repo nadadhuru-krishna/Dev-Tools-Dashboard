@@ -1,0 +1,25 @@
+{
+    "projects": [
+        {
+            "projectName": "all-in-one-dashboard",
+            "github": {
+                "parentBranch": "Enovative-Solugenix",
+                "branch": "all-in-one-dashboard",
+                "subBranch": "",
+                "token": "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"
+            },
+            "jenkins":{
+
+            },
+            "sonar":{
+
+            },
+            "agile":{
+
+            },
+            "vulnerabilities":{
+                
+            }
+        }
+    ]
+}

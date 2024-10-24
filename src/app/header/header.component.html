@@ -1,0 +1,17 @@
+<div class="header bg-black rounded-md p-2">
+    <div class="logo flex">
+        <img src="../../assets/images/logo.png" class="border-r-2 px-2" alt="Logo">
+        <img src="../../assets/images/Solugenix 2024 logo final White.svg" class="px-2">
+    </div>
+    <div class="add-button">
+        <mat-form-field>
+            <mat-label>Project List</mat-label>
+            <mat-select [(ngModel)]="selectedProject" (selectionChange)="onChange($event)">
+                @for (list of projectList; track list) {
+                <mat-option [value]="list.key">{{list.value}}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+        <button class="header-button" (click)="onButtonClick()">Add Project</button>
+    </div>
+</div>

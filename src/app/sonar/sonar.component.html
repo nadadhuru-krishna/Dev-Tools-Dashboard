@@ -1,0 +1,13 @@
+<div *ngIf="projectSelected" class="text-sm my-2 grid gap-2">
+    <p class="mx-auto my-auto text-center">Sonar Section Depicts the code smell count or the code coverage. Basically the metrics which is the reason for the failure or success of the Code Quality Check and the CI/CD Pipeline.</p>
+    <div class="grid grid-cols-2 gap-2">
+        <p class="font-semibold"> Code Coverage</p>
+        <label class="text-green-600">90 %</label>
+    </div>
+    <div class="grid grid-cols-2 gap-2">
+        <p class="font-semibold"> Code Smells</p>
+        <label class="text-red-600">90</label>
+    </div>
+</div>
+<p *ngIf="!projectSelected" class="mx-auto my-auto text-center">Sonar Section Depicts the code smell count or the code coverage. Basically the metrics which is the reason for the failure or success of the Code Quality Check and the CI/CD Pipeline.</p>
+

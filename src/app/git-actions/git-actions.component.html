@@ -1,0 +1,29 @@
+<div *ngIf="projectSelected" class="text-sm my-2">
+    <div *ngIf="actionWorkFlowForSelectedActivity" class="grid gap-2">
+        <div class="grid grid-cols-2">
+            <label class="font-semibold">Committer</label>
+            <p>{{ actionWorkFlowForSelectedActivity?.committer }}</p>
+        </div>
+        <div class="grid grid-cols-2">
+            <label class="font-semibold">Event </label>
+            <p>{{ actionWorkFlowForSelectedActivity?.event }} </p>
+        </div>
+        <div class="grid grid-cols-2">
+            <label class="font-semibold">Head Branch </label>
+            <p>{{ actionWorkFlowForSelectedActivity.headBranch }} </p>
+        </div>
+        <div class="grid grid-cols-2">
+            <label class="font-semibold">Commit Message</label>
+            <p>{{ actionWorkFlowForSelectedActivity?.commitMsg }} </p>
+        </div>
+        <div class="grid grid-cols-2">
+            <label class="font-semibold">Status </label>
+            <p>{{ actionWorkFlowForSelectedActivity?.status }} </p>
+        </div>
+        <div class="grid grid-cols-2">
+            <label class="font-semibold">Conclusion </label>
+            <p class="capitalize text-lg" [ngClass]="actionWorkFlowForSelectedActivity?.conclusion === 'success' ? 'text-green-600 font-bold ' : actionWorkFlowForSelectedActivity?.conclusion === 'failure' ? 'text-red-600 font-bold ' : 'text-yellow-600'">{{ actionWorkFlowForSelectedActivity?.conclusion }} </p>
+        </div>
+    </div>
+</div>
+<p *ngIf="!projectSelected" class="justify-center mx-auto my-auto text-center">This Section Displays the selected Git Action Workflow/ Pipeline information. User Can conclude if the pipeline was success or failure from here.</p>

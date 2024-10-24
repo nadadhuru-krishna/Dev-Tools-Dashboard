@@ -1,0 +1,21 @@
+<mat-dialog-content class="mat-typography">
+    <h2 mat-dialog-title>Add Details</h2>
+    <form [formGroup]="form">
+        <div class="form-align" style="display: block;">
+            <mat-form-field appearance="fill">
+                <mat-label>Repository Name</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+        </div>
+        <div class="form-align">
+            <mat-form-field appearance="fill">
+                <mat-label>Owner</mat-label>
+                <input matInput formControlName="owner">
+            </mat-form-field>
+        </div>        
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="saveDetails()">Save</button>
+</mat-dialog-actions>

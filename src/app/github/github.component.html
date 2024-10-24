@@ -1,0 +1,65 @@
+<div *ngIf="projectSelected" class="text-sm grid grid-cols-3 gap-2">
+    <div class="rounded-md grid gap-2 bg-gray-200 h-full p-4 m-1">
+        <div class="grid grid-cols-2">
+            <label class="font-semibold">Selected Repository</label>
+            <p class="font-bold text-lg text-green-600">{{ githubRepo.name }}</p>
+        </div>
+        <div class="grid grid-cols-2">
+            <label class="font-semibold">Latest Activity </label>
+            <p>{{ gitActivity.latestActivity }} </p>
+        </div>
+        <div class="grid grid-cols-2">
+            <label class="font-semibold">Branch </label>
+            <p>{{ gitActivity.branch}} </p>
+        </div>
+        <div class="grid grid-cols-2">
+            <label class="font-semibold">Done By </label>
+            <p>{{ gitActivity.contributor }} </p>
+        </div>
+        <div class="grid grid-cols-2">
+            <label class="font-semibold">At </label>
+            <p>{{ gitActivity.time | date: 'dd MMM yyyy' }} </p>
+        </div>
+    </div>
+
+    <div class="rounded-md col-span-2 bg-gray-200 h-full p-4 overflow-auto m-1">
+        <p-table [value]="gitActivityArray" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5, 10, 20]"
+            selectionMode="single" [selection]="selectedActivity" dataKey="id" (selectionChange)="onRowSelect($event)"
+            [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Activity</th>
+                    <th>Actor</th>
+                    <th>Branch</th>
+                    <th>Date</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-activity>
+                <tr [pSelectableRow]="activity">
+                    <td class="!p-1">{{activity.activity_type}}</td>
+                    <td class="!p-1">{{activity.actor.login}}</td>
+                    <td class="!p-1">{{activity.ref.split('refs/heads/')[1]}}</td>
+                    <td class="!p-1">{{activity.timestamp | date: 'dd MMM yyyy'}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+
+    <!-- <div class="rounded-md col-span-2 bg-white h-80 p-4 overflow-auto">
+        <label class="font-semibold">Previous Activity List</label>
+        <div *ngFor="let activity of gitActivityArray">
+            <ul>
+                <li (click)="sendSelectedActivity(activity)">
+                    <div class="grid grid-cols-4 gap-2">
+                        <p>{{activity.activity_type}}</p>
+                        <p>{{activity.actor.login}}</p>
+                        <p>{{activity.ref.split('refs/heads/')[1]}}</p>
+                        <p>{{activity.timestamp | date: 'dd MMM yyyy'}}</p>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div> -->
+</div>
+<p *ngIf="!projectSelected" class="mx-auto my-auto text-center">The Git Section Displays the current selected Repository and it's Activity Log in a tabular format.</p>
